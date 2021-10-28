@@ -1,0 +1,49 @@
+﻿@using ETradeApp.Models
+<div class="tab-pane fade pt-2 show active" id="pills-one-example1" role="tabpanel" aria-labelledby="pills-one-example1-tab" data-target-group="groups">
+    <ul class="row list-unstyled products-group no-gutters">
+        @foreach (var product in Model)
+        {
+            <li class="col-6 col-md-4 product-item">
+                <div class="product-item__outer h-100 w-100">
+                    <div class="product-item__inner px-xl-4 p-3">
+                        <div class="product-item__body pb-xl-2">
+                            <div class="mb-2"><a href="javascript:;" class="font-size-12 text-gray-5">@product.Category.CategoryName</a></div>
+                            <h5 class="mb-1 product-item__title"><a href="#" class="text-blue font-weight-bold">@product.ProductDescription</a></h5>
+                            <div class="mb-2">
+                                <img class="img-fluid custom-img" src="~/img/@product.Pictures[0].PictureName" alt="Image Description">
+                            </div>
+                            <div class="flex-center-between mb-1">
+                                <div class="prodcut-price">
+                                    <div class="text-gray-100">@product.UnitPrice ₺</div>
+                                </div>
+                                <div class="d-none d-xl-block prodcut-add-cart">
+                                    <button type="button" class="btn-add-cart btn-primary transition-3d-hover detail-button" data-toggle="modal" data-target="#exampleModalCenter" productId="@product.Id" productDesc="@product.ProductDescription">Detay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script>
+    $(".detail-button").click(function () {
+        var productId = $(this).attr("productId");
+        var productDescription = $(this).attr("productDesc");
+        $.ajax({
+            type: 'POST',
+            url: '/Product/ProductDetail/',
+            data: { id: productId },
+            dataType: 'html',
+            success: function (data) {
+                $(".modal-body").html(data);
+            }
+        });
+
+        $("#exampleModalLongTitle").text(productDescription);
+
+    });
+</script>

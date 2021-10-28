@@ -1,0 +1,224 @@
+﻿@{ Layout = null; }
+
+
+
+<link rel="stylesheet" href="~/vendor/slick-carousel/slick/slick.css">
+
+<div class="mb-14" style="margin-top:20px">
+    <div class="row">
+        <div class="col-md-6 col-lg-4 col-xl-5 mb-4 mb-md-0">
+            <div id="sliderSyncingNav" class="js-slick-carousel u-slick mb-2"
+                 data-infinite="true"
+                 data-arrows-classes="d-none d-lg-inline-block u-slick__arrow-classic u-slick__arrow-centered--y rounded-circle"
+                 data-arrow-left-classes="fas fa-arrow-left u-slick__arrow-classic-inner u-slick__arrow-classic-inner--left ml-lg-2 ml-xl-4"
+                 data-arrow-right-classes="fas fa-arrow-right u-slick__arrow-classic-inner u-slick__arrow-classic-inner--right mr-lg-2 mr-xl-4"
+                 data-nav-for="#sliderSyncingThumb">
+                @foreach (var picture in Model.Pictures)
+                {
+    <div class="js-slide">
+        <img class="img-fluid custom-img-1" src="~/img/@picture.PictureName" alt="@picture.PictureName">
+    </div>}
+            </div>
+
+            <div id="sliderSyncingThumb" class="js-slick-carousel u-slick u-slick--slider-syncing u-slick--slider-syncing-size u-slick--gutters-1 u-slick--transform-off"
+                 data-infinite="true"
+                 data-slides-show="5"
+                 data-is-thumbs="true"
+                 data-nav-for="#sliderSyncingNav">
+                @foreach (var picture in Model.Pictures)
+                {
+    <div class="js-slide" style="cursor: pointer; width:auto;">
+        <img class="img-fluid custom-img-2" src="~/img/@picture.PictureName" alt="@picture.PictureName">
+    </div>}
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-4 mb-md-6 mb-lg-0">
+            <div class="mb-2">
+                <a href="#" class="font-size-12 text-gray-5 mb-2 d-inline-block">@Model.Category.CategoryName</a>
+                <h2 class="font-size-25 text-lh-1dot2">@Model.ProductName</h2>
+                <div class="mb-2">
+                    <a class="d-inline-flex align-items-center small font-size-15 text-lh-1" href="#">
+                        <div class="text-warning mr-2">
+                            <small class="fas fa-star"></small>
+                            <small class="fas fa-star"></small>
+                            <small class="fas fa-star"></small>
+                            <small class="fas fa-star"></small>
+                            <small class="far fa-star text-muted"></small>
+                        </div>
+                    </a>
+                </div>
+                <p>@Model.ProductDescription</p>
+            </div>
+        </div>
+        <div class="mx-md-auto mx-lg-0 col-md-6 col-lg-4 col-xl-3">
+            <div class="mb-2">
+                <div class="card p-5 border-width-2 border-color-1 borders-radius-17">
+                    <div class="text-gray-9 font-size-14 pb-2 border-color-1 border-bottom mb-3">Stok Miktarı: <span class="text-green font-weight-bold">@Model.StockAmount</span></div>
+                    <div class="mb-3">
+                        <div class="font-size-36">@Model.UnitPrice ₺</div>
+                    </div>
+                    <div class="mb-3">
+                        <h6 class="font-size-14">Adet</h6>
+                        <!-- Quantity -->
+                        <div class="border rounded-pill py-1 w-md-60 height-35 px-3 border-color-1">
+                            <div class="js-quantity row align-items-center">
+                                <div class="col">
+                                    <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="text" value="1">
+                                </div>
+                                <div class="col-auto pr-1">
+                                    <a class="js-minus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0" href="javascript:;">
+                                        <small class="fas fa-minus btn-icon__inner"></small>
+                                    </a>
+                                    <a class="js-plus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0" href="javascript:;">
+                                        <small class="fas fa-plus btn-icon__inner"></small>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Quantity -->
+                    </div>
+                    <div class="mb-2 pb-0dot5">
+                        <a href="#" class="btn btn-block btn-primary-dark"><i class="ec ec-add-to-cart mr-2 font-size-20"></i> Sepete Ekle</a>
+                    </div>
+                    <div class="mb-3">
+                        <a href="#" class="btn btn-block btn-dark">Satın Al</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JS Global Compulsory -->
+<script src="~/vendor/jquery/dist/jquery.min.js"></script>
+<script src="~/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+<script src="~/vendor/popper.js/dist/umd/popper.min.js"></script>
+<script src="~/vendor/bootstrap/bootstrap.min.js"></script>
+
+<!-- JS Implementing Plugins -->
+<script src="~/vendor/appear.js"></script>
+<script src="~/vendor/jquery.countdown.min.js"></script>
+<script src="~/vendor/hs-megamenu/src/hs.megamenu.js"></script>
+<script src="~/vendor/svg-injector/dist/svg-injector.min.js"></script>
+<script src="~/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="~/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/vendor/fancybox/jquery.fancybox.min.js"></script>
+<script src="~/vendor/typed.js/lib/typed.min.js"></script>
+<script src="~/vendor/slick-carousel/slick/slick.js"></script>
+<script src="~/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+
+<!-- JS Electro -->
+<script src="~/js/hs.core.js"></script>
+<script src="~/js/components/hs.countdown.js"></script>
+<script src="~/js/components/hs.header.js"></script>
+<script src="~/js/components/hs.hamburgers.js"></script>
+<script src="~/js/components/hs.unfold.js"></script>
+<script src="~/js/components/hs.focus-state.js"></script>
+<script src="~/js/components/hs.malihu-scrollbar.js"></script>
+<script src="~/js/components/hs.validation.js"></script>
+<script src="~/js/components/hs.fancybox.js"></script>
+<script src="~/js/components/hs.onscroll-animation.js"></script>
+<script src="~/js/components/hs.slick-carousel.js"></script>
+<script src="~/js/components/hs.show-animation.js"></script>
+<script src="~/js/components/hs.svg-injector.js"></script>
+<script src="~/js/components/hs.go-to.js"></script>
+<script src="~/js/components/hs.selectpicker.js"></script>
+
+<script>
+    $(window).on('load', function () {
+        // initialization of HSMegaMenu component
+        $('.js-mega-menu').HSMegaMenu({
+            event: 'hover',
+            direction: 'horizontal',
+            pageContainer: $('.container'),
+            breakpoint: 767.98,
+            hideTimeOut: 0
+        });
+    });
+
+    $(document).on('ready', function () {
+        // initialization of header
+        $.HSCore.components.HSHeader.init($('#header'));
+
+        // initialization of animation
+        $.HSCore.components.HSOnScrollAnimation.init('[data-animation]');
+
+        // initialization of unfold component
+        $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+            afterOpen: function () {
+                $(this).find('input[type="search"]').focus();
+            }
+        });
+
+        // initialization of popups
+        $.HSCore.components.HSFancyBox.init('.js-fancybox');
+
+        // initialization of countdowns
+        var countdowns = $.HSCore.components.HSCountdown.init('.js-countdown', {
+            yearsElSelector: '.js-cd-years',
+            monthsElSelector: '.js-cd-months',
+            daysElSelector: '.js-cd-days',
+            hoursElSelector: '.js-cd-hours',
+            minutesElSelector: '.js-cd-minutes',
+            secondsElSelector: '.js-cd-seconds'
+        });
+
+        // initialization of malihu scrollbar
+        $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+
+        // initialization of forms
+        $.HSCore.components.HSFocusState.init();
+
+        // initialization of form validation
+        $.HSCore.components.HSValidation.init('.js-validate', {
+            rules: {
+                confirmPassword: {
+                    equalTo: '#signupPassword'
+                }
+            }
+        });
+
+        // initialization of show animations
+        $.HSCore.components.HSShowAnimation.init('.js-animation-link');
+
+        // initialization of fancybox
+        $.HSCore.components.HSFancyBox.init('.js-fancybox');
+
+        // initialization of slick carousel
+        $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+
+        // initialization of go to
+        $.HSCore.components.HSGoTo.init('.js-go-to');
+
+        // initialization of hamburgers
+        $.HSCore.components.HSHamburgers.init('#hamburgerTrigger');
+
+        // initialization of unfold component
+        $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+            beforeClose: function () {
+                $('#hamburgerTrigger').removeClass('is-active');
+            },
+            afterClose: function () {
+                $('#headerSidebarList .collapse.show').collapse('hide');
+            }
+        });
+
+        $('#headerSidebarList [data-toggle="collapse"]').on('click', function (e) {
+            e.preventDefault();
+
+            var target = $(this).data('target');
+
+            if ($(this).attr('aria-expanded') === "true") {
+                $(target).collapse('hide');
+            } else {
+                $(target).collapse('show');
+            }
+        });
+
+        // initialization of unfold component
+        $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
+
+        // initialization of select picker
+        $.HSCore.components.HSSelectPicker.init('.js-select');
+    });
+</script>

@@ -1,0 +1,38 @@
+﻿<div class="container">
+
+    <div class="my-6">
+        <h1 class="text-center">Kategori Ekle</h1>
+    </div>
+
+    @using (Html.BeginForm("CategoryAdd", "Category", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="row">
+            <div class="col-lg-12 order-lg-1">
+                <div class="pb-7 mb-7">
+                    <!-- Billing Form -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- Input -->
+                            <div class="js-form-message mb-6">
+                                <label class="form-label">
+                                    Kategori Adı
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" class="form-control" name="CategoryName" placeholder="Kategori adı giriniz.." aria-label="Jack" required="" data-msg="Lütfen Kategori Adı Giriniz." data-error-class="u-has-error" data-success-class="u-has-success" autocomplete="off">
+                            </div>
+                            <!-- End Input -->
+                        </div>
+                        <div class="w-100"></div>
+
+                        <div class="col-md-6">
+                            <!-- Input -->
+                                <Button type="submit" class="btn btn-success"   required="" data-error-class="u-has-error" data-success-class="u-has-success">Ekle</Button>
+                            <!-- End Input -->
+                        </div>
+                    </div>
+                    <!-- End Billing Form -->
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,52 @@
+﻿<div class="container">
+    <div class="mb-4">
+        <h1 class="text-center">Ürün Yönetimi</h1>
+    </div>
+    <div class="mb-10 cart-table">
+        <table class="table" cellspacing="0">
+            <thead>
+                <tr>
+                    <th class="product-thumbnail">Ürün Resmi</th>
+                    <th class="product-name">Ürün Adı</th>
+                    <th class="product-price">Kategori Adı</th>
+                    <th class="product-quantity w-lg-15">Birim Fiyatı</th>
+                    <th class="product-subtotal">Stok Miktarı</th>
+                    <th class="product-subtotal"><a href="/Product/ProductAdd" class="btn btn-success">Ürün Ekle</a></th>
+                    @*<th class="product-subtotal">&nbsp;</th>*@
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model)
+                {
+                <tr class="">
+                    <td class="d-none d-md-table-cell">
+                        <a href="#"><img class="img-fluid max-width-100 p-1 border border-color-1" src="~/img/@product.Pictures[0].PictureName" alt="Image Description"></a>
+                    </td>
+
+                    <td data-title="Product">
+                        <a href="#" class="text-gray-90">@product.ProductName</a>
+                    </td>
+
+                    <td data-title="Total">
+                        <span class="">@product.Category.CategoryName</span>
+                    </td>
+
+                    <td data-title="Price">
+                        <span class="">@product.UnitPrice</span>
+                    </td>
+
+                    <td data-title="Quantity">
+                        <span class="">@product.StockAmount</span>
+                    </td>
+
+                    <td data-title="Buttons">
+                        <a href="/Product/ProductUpdate/@product.Id" class="btn btn-warning">Düzenle</a>
+                        <a href="/Product/ProductDelete/@product.Id" class="btn btn-danger">Sil</a>
+                    </td>
+
+                </tr>
+                 }
+            </tbody>
+        </table>
+    </div>
+</div>

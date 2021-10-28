@@ -1,0 +1,37 @@
+﻿
+
+<div class="container">
+    <div class="my-6">
+        <h1 class="text-center">Kategori Yönetimi</h1>
+    </div>
+    <div class="mb-16 wishlist-table" style="text-align:center">
+        <form class="mb-4" action="#" method="post">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Kategori Adı</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th><a type="button" href="/Category/CategoryAdd" class="btn btn-success mb-3 mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5 w-100 w-md-auto">Kategori Ekle</a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var category in Model)
+                        {
+                            <tr>
+                                <th><b>@category.CategoryName</b></th>
+                                <td></td>
+                                <td></td>
+                                <td><a type="button" href="/Category/CategoryUpdate/@category.Id" class="btn btn-warning mb-3 mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5 w-100 w-md-auto">Düzenle</a></td>
+                                <td><a type="button" href="/Category/CategoryDelete/@category.Id" class="btn btn-danger mb-3 mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5 w-100 w-md-auto">Sil</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
